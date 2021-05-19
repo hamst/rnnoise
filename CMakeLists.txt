@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.15)
+cmake_policy(SET CMP0091 NEW)
 project(rnnoise)
 
 add_definitions(-DCOMPILE_OPUS)
@@ -14,6 +15,9 @@ add_definitions(-DRNNOISE_BUILD)
 
 # Compile the library
 add_library(rnnoise ${SOURCES})
+
+set_property(TARGET rnnoise PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 # Build DLL if needed
 if(BUILD_SHARED_LIBS)
