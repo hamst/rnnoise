@@ -7,6 +7,9 @@ add_definitions(-DCOMPILE_OPUS)
 # Ignore CRT warnings
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
+# Add math defines
+add_definitions(-D_USE_MATH_DEFINES)
+
 # Get source files
 file(GLOB SOURCES "src/*.c" "src/*.h" "include/*.h")
 
